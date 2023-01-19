@@ -10,7 +10,7 @@
 # }
 
 sec_key = (
-    ""  # Can be anything. Has to match with "key" in your TradingView alert message
+    "9T2q394M92"  # Can be anything. Has to match with "key" in your TradingView alert message
 )
 
 # Telegram Settings
