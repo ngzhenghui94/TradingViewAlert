@@ -3,20 +3,25 @@
 # Author Name           : fabston                 #
 # File Name             : config.py               #
 # ----------------------------------------------- #
+from os.path import join, dirname
+from dotenv import load_dotenv
 
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 # TradingView Example Alert Message:
 # {
 # "key":"9T2q394M92", "telegram":"-1001298977502", "discord":"789842349670960670/BFeBBrCt-w2Z9RJ2wlH6TWUjM5bJuC29aJaJ5OQv9sE6zCKY_AlOxxFwRURkgEl852s3", "msg":"Long #{{ticker}} at `{{close}}`"
 # }
 
 sec_key = (
-    "9T2q394M92"  # Can be anything. Has to match with "key" in your TradingView alert message
+    os.environ.get("SECKEY")  # Can be anything. Has to match with "key" in your TradingView alert message
 )
 
 # Telegram Settings
 send_telegram_alerts = True
-tg_token = "5685940104:AAEbfdVe2ellHyTmLqcl0o5NveS1HJX0rJ4"  # Bot token. Get it from @Botfather
-channel = -1001843719135  # Channel ID (ex. -1001487568087)
+tg_token = os.environ.get("TGTOKEN")  # Bot token. Get it from @Botfather
+channel = os.environ.get("CHANNELID")  # Channel ID (ex. -1001487568087)
+# channel = 151894779
 
 # Discord Settings
 send_discord_alerts = False
